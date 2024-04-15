@@ -1,0 +1,37 @@
+Given an unsorted array arr[] of n integers and a key which is present in this array. You need to write a program to find the start index( index where the element is first found from left in the array ) and end index( index where the element is first found from right in the array ).(0 based indexing is used)
+If the key does not exist in the array then return -1 for both start and end index in this case.
+
+Example 1:
+
+Input:
+n = 6
+arr[] = { 1, 2, 3, 4, 5, 5 }
+key = 5
+Output:  {4, 5}
+Explanation:
+5 appears first time at index 4 and appears last time at index 5.
+(0 based indexing)
+
+
+
+
+class Solution:
+    def findIndex (self,arr, n, key ):
+        #code here.
+        result = []
+        for i in range (0,n):
+            if(arr[i] == key):
+                result.append(i)
+                
+        if len(result) == 1:
+            result.append(result[0])
+            
+        if len(result) > 2:
+            first = result[0]
+            last = result[len(result) - 1]
+            result = [first,last]
+            
+        if len(result) == 0:
+            result = [-1,-1]
+            
+        return result
